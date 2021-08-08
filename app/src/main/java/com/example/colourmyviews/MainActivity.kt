@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeColoured(view: View) {
+        // This is a Kotlin switch statement BTW
         when (view.id) {
             // Example of Color class
             R.id.box_one -> view.setBackgroundColor(Color.GRAY)
