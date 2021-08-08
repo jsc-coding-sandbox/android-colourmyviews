@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             val clickableViews: List<View> =
                 listOf(
                     boxOne, boxTwo, boxThree,
-                    boxFour, boxFive
+                    boxFour, boxFive, constraintLayout
                 )
 
             for (item in clickableViews) {
@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three -> view.setBackgroundResource(android.R.color.holo_green_light)
             R.id.box_four -> view.setBackgroundResource(android.R.color.holo_green_dark)
             R.id.box_five -> view.setBackgroundResource(android.R.color.holo_green_light)
+
+            else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
 }
