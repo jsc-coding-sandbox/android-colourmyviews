@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 )
 
             for (item in clickableViews) {
-                item.setOnClickListener() { makeColoured(it) }
+                item.setOnClickListener { makeColoured(it) }
             }
         }
     }
