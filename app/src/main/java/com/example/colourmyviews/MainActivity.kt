@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.colourmyviews.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,7 +30,8 @@ class MainActivity : AppCompatActivity() {
             val clickableViews: List<View> =
                 listOf(
                     boxOne, boxTwo, boxThree,
-                    boxFour, boxFive, constraintLayout
+                    boxFour, boxFive, constraintLayout,
+                    redButton, blueButton, greenButton
                 )
 
             for (item in clickableViews) {
@@ -39,17 +41,36 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun makeColoured(view: View) {
-        // This is a Kotlin switch statement BTW
+        val randomNum = (0..4).random()
+        val selectedView: View
+
+        // Select a box to change at random for the bottom buttons.
+        // Note: this also includes boxes that are already the selected colour.
+        // (Yep I got bored following the tutorial exactly).
+        selectedView = when (randomNum) {
+            0 -> binding.boxOne
+            1 -> binding.boxTwo
+            2 -> binding.boxThree
+            3 -> binding.boxFour
+            4 -> binding.boxFive
+            else -> binding.boxOne // Box one as default
+        }
+
+        // "when" is a Kotlin switch statement BTW
         when (view.id) {
-            // Example of Color class
+            // Example of setting colour using Color class
             R.id.box_one -> view.setBackgroundColor(Color.GRAY)
             R.id.box_two -> view.setBackgroundColor(Color.DKGRAY)
-            // Example of Android colour resources
+            // Example of setting colour using Android or project's colour resources
             R.id.box_three -> view.setBackgroundResource(android.R.color.holo_green_light)
             R.id.box_four -> view.setBackgroundResource(android.R.color.holo_green_dark)
             R.id.box_five -> view.setBackgroundResource(android.R.color.holo_green_light)
 
-            else -> view.setBackgroundColor(Color.LTGRAY)
+            R.id.red_button -> selectedView.setBackgroundResource(R.color.my_red)
+            R.id.blue_button -> selectedView.setBackgroundResource(R.color.my_blue)
+            R.id.green_button -> selectedView.setBackgroundResource(R.color.my_green)
+
+            else -> view.setBackgroundColor(Color.LTGRAY) // Something else was tapped, do background
         }
     }
 }

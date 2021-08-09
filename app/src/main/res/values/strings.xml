@@ -9,5 +9,6 @@
     <string name="blue">BLUE</string>
     <string name="green">GREEN</string>
     <string name="how_to_play">How to Play:</string>
-    <string name="info_text">Tap the buttons. If you can\'t find them, tap the screen.</string>
+    <string name="info_text">Tap the hidden boxes. If you can\'t find them, tap the screen.
+        Tap the buttons at the button to change a random box to that colour.</string>
 </resources>
